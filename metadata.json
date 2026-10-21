@@ -1,0 +1,6 @@
+{
+  "name": "واصل | Wasel Logistics & Backhauling",
+  "description": "منصة ذكية للوجستيات الميل الأخير ومشاركة الرحلات للطرود بين المدن الفلسطينية مع استغلال رحلات العودة والتسعير الديناميكي",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
