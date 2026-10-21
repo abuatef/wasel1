@@ -26,7 +26,9 @@ import {
   Layers,
   Lock,
   Unlock,
+  Compass,
 } from 'lucide-react';
+import { TechnicalRoadmap } from './TechnicalRoadmap';
 
 interface AdminDashboardProps {
   orders: Order[];
@@ -51,7 +53,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   onLogSettlement,
   onAddMerchant,
 }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'financial' | 'pricing' | 'monitoring' | 'b2b' | 'legal'>('financial');
+  const [activeAdminTab, setActiveAdminTab] = useState<'financial' | 'pricing' | 'monitoring' | 'b2b' | 'legal' | 'roadmap'>('financial');
 
   // Pricing config editing state
   const [baseFare, setBaseFare] = useState<number>(pricingConfig.baseFare);
@@ -209,6 +211,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           >
             <FileText className="w-3.5 h-3.5" />
             <span>الشروط والضمان القانوني</span>
+          </button>
+
+          <button
+            onClick={() => setActiveAdminTab('roadmap')}
+            className={`px-3 py-2 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 ${
+              activeAdminTab === 'roadmap'
+                ? 'bg-emerald-500 text-slate-950 shadow-md font-bold'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Compass className="w-3.5 h-3.5" />
+            <span>خارطة طريق التطوير التقني</span>
           </button>
         </div>
       </div>
@@ -737,6 +751,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
         </div>
       )}
+
+      {/* TAB 6: TECHNICAL & PRODUCT ROADMAP */}
+      {activeAdminTab === 'roadmap' && <TechnicalRoadmap />}
 
       {/* MODAL: ADD B2B MERCHANT */}
       {showNewMerchantModal && (
